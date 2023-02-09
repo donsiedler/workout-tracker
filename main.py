@@ -1,12 +1,18 @@
 from datetime import datetime
+import os
 import requests
-from local_settings import APP_ID, API_KEY, AUTH_TOKEN
-from local_settings import GENDER, WEIGHT_KG, HEIGHT_CM, AGE, USERNAME
+from local_settings import GENDER, WEIGHT_KG, HEIGHT_CM, AGE
+
+APP_ID = os.environ.get("APP_ID")
+API_KEY = os.environ.get("API_KEY")
+SHEETY_USERNAME = os.environ.get("SHEETY_USERNAME")
+SHEETY_AUTH_TOKEN = os.environ.get("SHEETY_AUTH_TOKEN")
+
 
 PROJECT_NAME = "workoutTracking"
 SHEET_NAME = "workouts"
 NUTRITIONIX_API_ENDPOINT = "https://trackapi.nutritionix.com/v2/natural/exercise"
-SHEETY_API_ENDPOINT = f"https://api.sheety.co/{USERNAME}/{PROJECT_NAME}/{SHEET_NAME}"
+SHEETY_API_ENDPOINT = f"https://api.sheety.co/{SHEETY_USERNAME}/{PROJECT_NAME}/{SHEET_NAME}"
 
 NUTRITIONIX_API_HEADERS = {
     "x-app-id": APP_ID,
@@ -15,7 +21,7 @@ NUTRITIONIX_API_HEADERS = {
 }
 
 SHEETY_API_HEADERS = {
-    "Authorization": f"Bearer {AUTH_TOKEN}",
+    "Authorization": f"Bearer {SHEETY_AUTH_TOKEN}",
 }
 
 workout_input = input("Tell me what did you do today?\n")
