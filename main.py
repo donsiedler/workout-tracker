@@ -1,0 +1,1 @@
+from local_settings import APP_ID, API_KEY
