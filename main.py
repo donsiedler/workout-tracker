@@ -35,7 +35,7 @@ for exercise in workout_data:
         "workout": {
             "date": now.strftime("%d/%m/%Y"),
             "time": now.strftime("%X"),
-            "exercise": exercise["name"],
+            "exercise": exercise["name"].title(),
             "duration": exercise["duration_min"],
             "calories": exercise["nf_calories"],
         }
